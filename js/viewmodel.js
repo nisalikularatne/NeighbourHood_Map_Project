@@ -40,13 +40,11 @@ var viewModel=function() {
                 stopBounce();
                 toggleBounce(newMarker);
                 FourSquareInformation(mall)
+                $( ".description" ).show();
 
 
-            }
-
-            ;
-
+            };
         }
-
     }
+
 };
