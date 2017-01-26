@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<body lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NeighbourHood Map</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <link rel="stylesheet" href="css/mainStyle.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+
+</head>
+ <!-- for the header -->
+ <div class="header">
+     <h2>Malaysian Shopping Malls with their FOURSQUARE Information</h2>
+ </div>
+ <!--for the main which includes navigation bar and also the map-->
+ <div class="main">
+
+     <!--Main map Area View-->
+      <div id="map" ></div>
+
+
+
+  <!--navigation sidebar view-->
+    <div class="navigation">
+        <input type="text" class="search" data-bind="textInput: query" placeholder="Search Mall">
+        <ul data-bind="foreach: filteredQuery">
+            <li class="mall_name"><a href="#" class="mall_name" data-bind="text: name,click:displayWindow"></a></li>
+        </ul>
+    <div class="description" >
+         <img data-bind="attr: {src: location_image}" alt="Foursquare location image"/><br/>
+        <h3 data-bind="text: location_name"></h3>
+       <h3>Review:</h3>
+        <p data-bind="text:review"></p>
+        <hr>
+    </div>
+    </div>
+     <div class="google-error">
+            <h2 class="error_message" data-bind="text:error_message"></h2>
+        </div>
+    </div>
+     <script src="js/knockout.js"></script>
+     <script src="js/jquery.min.js"></script>
+     <script src="js/model.js"></script>
+     <script src="js/FourSquareAPI.js"></script>
+     <script src="js/viewmodel.js"></script>
+     <script src="js/main.js"></script>
+
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp7fAZnTebzUl8RO7jWeQVSPwOxjm_6WE&callback=initMap" onerror="googleError()" async defer></script>
+</body>
+</html>

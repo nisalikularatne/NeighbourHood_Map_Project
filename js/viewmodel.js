@@ -1,0 +1,52 @@
+/**
+ * Created by Nisali Kularatne on 26/01/2017.
+ */
+var viewModel=function() {
+
+    var self = this;
+    this.query = ko.observable('');
+    this.location_image = ko.observable();
+    this.location_name = ko.observable();
+    this.review = ko.observable();
+    this.markersArray = ko.observableArray([]);
+    this.filteredQuery = ko.computed(function () {
+        q = self.query();
+        if (!q) {
+            MarkersDisplay();
+            return malls;
+        }
+        else {
+            MarkersDeletion();
+            return ko.utils.arrayFilter(malls, function (mall) {
+
+                if (mall.name.toLowerCase().indexOf(q) >= 0) {
+                    MarkerInsertion(mall);
+                    return mall;
+
+
+                }
+            });
+        }
+    });
+    this.closeDesc = function(){
+        self.des_name(null);
+    };
+
+    this.displayWindow = function (mall) {
+
+        for (var i = 0; i < malls.length; i++) {
+            if (mall.name == malls[i].name) {
+                var newMarker = markersArray()[i][1];
+                stopBounce();
+                toggleBounce(newMarker);
+                FourSquareInformation(mall)
+
+
+            }
+
+            ;
+
+        }
+
+    }
+};
