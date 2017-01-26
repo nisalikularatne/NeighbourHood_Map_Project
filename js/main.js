@@ -31,6 +31,7 @@ function initMap() {
         MarkerInsertion(malls[i]);
         //toggles the marker when a marker is clicked
         this.marker.addListener('click', function() {
+            stopBounce();
             self.toggleBounce(this);
 
         });
