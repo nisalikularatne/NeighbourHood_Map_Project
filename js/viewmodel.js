@@ -1,6 +1,9 @@
 /**
  * Created by Nisali Kularatne on 26/01/2017.
  */
+
+//viewModel of the whole project
+    //help taken from the knockout.js documentation
 var viewModel=function() {
 
     var self = this;
@@ -28,9 +31,6 @@ var viewModel=function() {
             });
         }
     });
-    this.closeDesc = function(){
-        self.des_name(null);
-    };
 
     this.displayWindow = function (mall) {
 

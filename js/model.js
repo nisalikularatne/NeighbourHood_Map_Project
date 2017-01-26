@@ -1,6 +1,7 @@
 /**
  * Created by Nisali Kularatne on 26/01/2017.
  */
+//model of the project
 var malls = [
     {
         "name": "Pavilion Kuala Lumpur",

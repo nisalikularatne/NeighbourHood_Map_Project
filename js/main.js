@@ -1,3 +1,4 @@
+//most of the code taken from resources from google maps api and help from stackoverflow and the udacity discussion forum
 var marker;
 var map;
 var mallsLength=malls.length;
