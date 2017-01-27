@@ -12,9 +12,16 @@ function MarkerInsertion(mall) {
     if (self.marker) {
         self.markersArray().push([mall.location,
             self.marker]);
+        google.maps.event.addListener(marker, 'click', function() {
+            stopBounce();
+            self.toggleBounce(this);
+            FourSquareInformation(mall);
+            viewModel1.shouldShowMessage(true);
+            });
 
     }
 }
+//function to display all the markers
 function MarkersDisplay() {
     for (var i = 0; i < self.markersArray().length; i++) {
         self.markersArray()[i][1].setMap(map);
@@ -29,13 +36,7 @@ function initMap() {
       });
     for(var i=0; i<mallsLength; i++){
         MarkerInsertion(malls[i]);
-        //toggles the marker when a marker is clicked
-        this.marker.addListener('click', function() {
-            stopBounce();
-            self.toggleBounce(this);
-
-        });
-
+        malls[i].marker=marker;
     };
           //adding the bounds for all the markers to fit on the screen
           bounds = new google.maps.LatLngBounds();

@@ -22,7 +22,7 @@
         <ul data-bind="foreach: filteredQuery">
             <li class="mall_name"><a href="#" class="mall_name" data-bind="text: name,click:displayWindow"></a></li>
         </ul>
-    <div class="description" >
+    <div class="description" data-bind="visible: viewModel1.shouldShowMessage" >
          <img data-bind="attr: {src: location_image}" alt="Foursquare location image"/><br/>
         <h3 data-bind="text: location_name"></h3>
        <h3>Review:</h3>
@@ -35,8 +35,14 @@
         </div>
     </div>
      <script src="js/knockout.js"></script>
+<script>
+     var viewModel1 = {
+        shouldShowMessage: ko.observable(false)
+    };
+    viewModel1.shouldShowMessage(false);
+</script>
+
      <script src="js/jquery.min.js"></script>
-     <script>$( ".description" ).hide();</script>
      <script src="js/model.js"></script>
      <script src="js/FourSquareAPI.js"></script>
      <script src="js/viewmodel.js"></script>

@@ -21,7 +21,6 @@ var viewModel=function() {
         else {
             MarkersDeletion();
             return ko.utils.arrayFilter(malls, function (mall) {
-
                 if (mall.name.toLowerCase().indexOf(q) >= 0) {
                     MarkerInsertion(mall);
                     return mall;
@@ -33,14 +32,13 @@ var viewModel=function() {
     });
 
     this.displayWindow = function (mall) {
-
         for (var i = 0; i < malls.length; i++) {
             if (mall.name == malls[i].name) {
                 var newMarker = markersArray()[i][1];
                 stopBounce();
                 toggleBounce(newMarker);
-                FourSquareInformation(mall)
-                $( ".description" ).show();
+                FourSquareInformation(mall);
+                viewModel1.shouldShowMessage(true);
 
 
             };
