@@ -12,6 +12,8 @@ var viewModel=function() {
     this.location_name = ko.observable();
     this.review = ko.observable();
     this.markersArray = ko.observableArray([]);
+    this.apiError = ko.observable(false);
+    this.error_message = ko.observable();
     this.filteredQuery = ko.computed(function () {
         q = self.query();
         if (!q) {
