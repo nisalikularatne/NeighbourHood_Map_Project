@@ -20,7 +20,7 @@
     <div class="navigation">
         <input type="text" class="search" data-bind="textInput: query" placeholder="Search Mall">
         <ul data-bind="foreach: filteredQuery">
-            <li class="mall_name"><a href="#" class="mall_name" data-bind="text: name,click:displayWindow"></a></li>
+            <li class="mall_name"><a href="#" class="mall_name" data-bind="text: name,click:$parent.displayWindow"></a></li>
         </ul>
     <div class="description" data-bind="visible: viewModel1.shouldShowMessage" >
          <img data-bind="attr: {src: location_image}" alt="Foursquare location image"/><br/>

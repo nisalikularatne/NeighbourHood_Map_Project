@@ -9,7 +9,9 @@ function MarkerInsertion(mall) {
         position: mall.location,
         animation: google.maps.Animation.DROP
     });
+    mall.marker=marker;
     if (self.marker) {
+
         self.markersArray().push([mall.location,
             self.marker]);
         google.maps.event.addListener(marker, 'click', function() {
@@ -20,6 +22,7 @@ function MarkerInsertion(mall) {
             });
 
     }
+    return marker;
 }
 //function to display all the markers
 function MarkersDisplay() {
@@ -36,7 +39,6 @@ function initMap() {
       });
     for(var i=0; i<mallsLength; i++){
         MarkerInsertion(malls[i]);
-        malls[i].marker=marker;
     };
           //adding the bounds for all the markers to fit on the screen
           bounds = new google.maps.LatLngBounds();
@@ -50,6 +52,7 @@ function initMap() {
               }
               map.fitBounds(bounds);
           }
+          ko.applyBindings(new viewModel());
 }
 //error message which gets displayed when the google maps fail to load onscreen
 var googleError = function(){
