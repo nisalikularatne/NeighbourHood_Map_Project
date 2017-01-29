@@ -35,8 +35,7 @@ var FourSquareInformation = function(mall){
             }
 
     }).error(function(data){
-       self.error_message('FOURSQUARE LOADING FAILED');
-       self.apiError(true);
+      ErrorFourSquare();
     })
 
 };

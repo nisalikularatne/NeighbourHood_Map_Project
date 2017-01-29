@@ -66,6 +66,10 @@ var googleError = function(){
     self.error_message('Google Maps cannot load');
     self.apiError(true);
 };
+var ErrorFoursquare=function(){
+     self.error_message('FOURSQUARE LOADING FAILED');
+       self.apiError(true);
+}
 //function to toggle the marker and get the animation on marker to work
 //function taken from stackoverflow
 var toggleBounce=function(marker) {
