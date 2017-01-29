@@ -55,6 +55,7 @@ function initMap() {
 
               map.fitBounds(bounds);
           }
+          ko.applyBindings(new viewModel());
 
 }
 
