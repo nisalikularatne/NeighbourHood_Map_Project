@@ -20,15 +20,20 @@ var viewModel=function() {
     this.filteredQuery = ko.computed(function () {
        var q = self.query().toLowerCase();
         if(!q){
-            MarkersDisplay();
+            for (var i = 0; i < self.markersArray().length; i++) {
+         self.markersArray()[i][1].setVisible(true);
+    }
             return malls;
         }
         else{
-            MarkersDeletion();
+
             return ko.utils.arrayFilter(malls, function(mall) {
                 if(mall.name.toLowerCase().indexOf(q) >= 0) {
-                    MarkerInsertion(mall);
+                   mall.marker.setVisible(true)
                     return mall;
+                }
+                else{
+                     mall.marker.setVisible(false)
                 }
             });
         }
