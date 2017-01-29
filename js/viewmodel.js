@@ -42,7 +42,7 @@ var viewModel=function() {
     this.displayWindow = function (mall) {
         for (var i = 0; i < malls.length; i++) {
             if (mall.name == malls[i].name) {
-                 FourSquareInformation(mall);
+                FourSquareInformation(mall);
                 var newMarker1 = markersArray()[i][1];
                 stopBounce();
                 toggleBounce(newMarker1);
