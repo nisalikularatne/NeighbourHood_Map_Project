@@ -1,5 +1,6 @@
 //most of the code taken from resources from google maps api and help from stackoverflow and the udacity discussion forum
 var marker;
+var new1=[]
 var map;
 var mallsLength=malls.length;
 //function takes from google javascript API
@@ -9,8 +10,7 @@ function MarkerInsertion(mall) {
         position: mall.location,
         animation: google.maps.Animation.DROP
     });
-    mall.marker=marker;
-    if (self.marker) {
+        if (self.marker) {
 
         self.markersArray().push([mall.location,
             self.marker]);
@@ -39,6 +39,7 @@ function initMap() {
       });
     for(var i=0; i<mallsLength; i++){
         MarkerInsertion(malls[i]);
+
     };
           //adding the bounds for all the markers to fit on the screen
           bounds = new google.maps.LatLngBounds();
@@ -50,10 +51,14 @@ function initMap() {
                   self.markersArray()[i][1].setMap(map);
                   bounds.extend(markersArray()[i][1].position);
               }
+
+
               map.fitBounds(bounds);
           }
-          ko.applyBindings(new viewModel());
+
 }
+
+
 //error message which gets displayed when the google maps fail to load onscreen
 var googleError = function(){
     self.error_message('Google Maps cannot load');
