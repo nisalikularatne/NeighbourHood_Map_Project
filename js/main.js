@@ -39,6 +39,7 @@ function initMap() {
       });
     for(var i=0; i<mallsLength; i++){
         MarkerInsertion(malls[i]);
+        malls[i].marker=self.marker;
 
     };
           //adding the bounds for all the markers to fit on the screen

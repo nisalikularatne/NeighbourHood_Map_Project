@@ -19,20 +19,19 @@ var viewModel=function() {
 
     this.filteredQuery = ko.computed(function () {
        var q = self.query().toLowerCase();
-
-        return ko.utils.arrayFilter(self.locations(), function (mall) {
-
-                  for (var i = 0; i < malls.length; i++) {
-                      if (mall.name === malls[i].name) {
-                          var match = mall.name.toLowerCase().indexOf(q) > -1;
-                          markersArray()[i][1].setVisible(match);
-
-                      }
-
-                  }
-                  return match;
-
+        if(!q){
+            MarkersDisplay();
+            return malls;
+        }
+        else{
+            MarkersDeletion();
+            return ko.utils.arrayFilter(malls, function(mall) {
+                if(mall.name.toLowerCase().indexOf(q) >= 0) {
+                    MarkerInsertion(mall);
+                    return mall;
+                }
             });
+        }
     });
 
     this.displayWindow = function (mall) {
